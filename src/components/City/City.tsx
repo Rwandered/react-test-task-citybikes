@@ -2,28 +2,42 @@ import React, { useState } from 'react';
 import cn from 'classnames';
 import s from  './City.module.scss';
 
-type CityType = {
-  network: {
-    location: {
-      city: string
-    }
-  }
+interface ICityType {
+  index?: number,
+  location: {
+    city: string,
+    country: string,
+    [propName: string]: any
+  },
+  stationId: string
 }
 
-const City = ( { network }: CityType ) => {
+const City = ( { location, index, stationId }:ICityType ) => {
 
-  const [isActive, setActive] = useState( false )
+
+
+  const { city, country } = location
+
+  const initState = index === 0
+  const [isActive, setActive] = useState( initState  )
 
   const handleGetStation = (event: React.MouseEvent<HTMLLIElement>) => {
+
+  }
+
+  const handleChangeActive = (event: React.FocusEvent) => {
     setActive(!isActive)
   }
 
   return (
     <li
-      className={ cn( { [s.cityBikes__city_active]:  isActive} ) }
-      onClick={ handleGetStation }
+      className={ cn( s.cityBikes__city, {  [s.cityBikes__city_active]:  isActive} ) }
+      tabIndex={0}
+      // onClick={ handleGetStation }
+      onFocus={ handleChangeActive }
+      onBlur={ handleChangeActive }
     >
-      { network.location.city }
+      {  `${city}: ${country}`  }
     </li>
   )
 }
