@@ -1,19 +1,20 @@
-import {SET_STATIONS} from "../actions/actionTypes";
-import {ISetStationsAction, Stations} from "../reduxTypes";
+import {SET_NETWORK} from "../actions/actionTypes";
+import {ISetStationsAction, Network} from "../reduxTypes";
 
-const initialState: Stations = {
+const initialState: Network = {
+  company: [],
+  location: {
+    city: '',
+    country: ''
+  },
   stations: []
 }
 
 export const stationReducer = (state = initialState, action: ISetStationsAction ) => {
   const { type, payload } = action
-
   switch (type) {
-    case SET_STATIONS: {
-      return {
-        ...state,
-        stations: payload.stations
-      }
+    case SET_NETWORK: {
+      return { ...state, ...payload  }
     }
     default: return state
   }

@@ -1,0 +1,10 @@
+.cityBikes__stationList {
+  flex: 0 0 70%;
+  overflow-y: auto;
+
+  .cityBikes__stationList_noData {
+    margin: 5px 50px 5px 5px;
+    padding-left: 40px;
+  }
+}
+

@@ -3,8 +3,10 @@ import {stationReducer} from "./stationReducer";
 
 
 const rootReducer = combineReducers({
-    stations: stationReducer
+    network: stationReducer
   }
 )
 
 export default rootReducer
+
+export type AppState = ReturnType<typeof rootReducer>;

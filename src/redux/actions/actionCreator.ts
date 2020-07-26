@@ -1,32 +1,21 @@
-import {GET_STATIONS, SET_STATIONS} from "./actionTypes";
-import {NetworkActionType, Stations} from "../reduxTypes";
+import { SET_NETWORK} from "./actionTypes";
+import {NetworkActionType, Network} from "../reduxTypes";
 
 
-export const setStation = (stations: Stations): NetworkActionType => {
+export const setNetwork = (network: Network): NetworkActionType => {
   return {
-    type: SET_STATIONS,
-    payload: stations
+    type: SET_NETWORK,
+    payload: network
   }
 }
 
 export const getStation = (id: string) => {
+
   return async (dispatch:any) => {
     try {
       const res = await fetch(`https://api.citybik.es/v2/networks/${id}`)
-      const { stations } = await res.json()
-      dispatch( setStation(stations) )
-    } catch (e) {
-
-    }
+      const { network } = await res.json()
+      dispatch( setNetwork( network ) )
+    } catch (e) {}
   }
 }
-
-// export const getStation = (id:string): object => {
-//   return  async (dispatch: any):Promise<any> => {
-//     try {
-//       const res = await fetch(`https://api.citybik.es/v2/networks/${id}`)
-//       const { stations } = await res.json()
-//       dispatch( setStation(stations) )
-//     } catch (e) {}
-//   }
-// }

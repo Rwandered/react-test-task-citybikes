@@ -1,15 +1,19 @@
-import React, {useEffect, useState} from 'react';
-import cn from 'classnames'
+import React from 'react';
 import CityList from "./components/CityList/CityList";
+import Header from "./components/Header/Header";
+import StationList from "./components/StationList/StationList";
+import s from './App.module.scss'
 
 
 const App = () => {
 
-
-  console.log('App')
   return (
-    <div className={ cn('cityBikes', 'cityBikes__wrapper')}>
-      <CityList/>
+    <div className={s.cityBikes}>
+      <Header/>
+      <div className={ s.cityBikes__wrapper }>
+          <CityList/>
+          <StationList/>
+      </div>
     </div>
   );
 }

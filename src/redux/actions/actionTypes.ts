@@ -1,2 +1,1 @@
-export const SET_STATIONS = 'SET_STATIONS'
-export const GET_STATIONS = 'GET_STATIONS'
+export const SET_NETWORK = 'SET_NETWORK'

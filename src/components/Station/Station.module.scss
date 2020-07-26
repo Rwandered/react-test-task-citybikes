@@ -1,0 +1,24 @@
+li {
+  list-style: none;
+}
+
+.cityBikes__station {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 50px 5px 5px;
+}
+
+.cityBikes__station_like {
+  list-style: none;
+
+  svg {
+    width: 20px;
+    cursor: pointer;
+  }
+}
+
+.cityBikes__station_liked {
+  svg {
+    fill: red;
+  }
+}

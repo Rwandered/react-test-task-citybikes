@@ -1,6 +1,7 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import cn from 'classnames'
 import City from "../City/City";
+import { CircularProgress } from '@material-ui/core';
 import s from './CityList.module.scss';
 
 interface INetwork {
@@ -15,16 +16,12 @@ interface INetwork {
 
 
 const CityList = () => {
-
   const [networks, setNetworks] = useState<INetwork[]>([])
 
   const getCityBikesCities = async () => {
     const res = await fetch('https://api.citybik.es/v2/networks?fields=id,company,location')
     const { networks } = await res.json()
-    const newNet = networks.filter( (elem:object, index:any) => index < 15)
-    setNetworks( newNet )
-    // console.log('cityBikesNetworks: ', networks)
-    console.log('newNet: ', newNet)
+    setNetworks( networks )
   }
 
 
@@ -53,7 +50,7 @@ const CityList = () => {
                 stationId={ network.id }
               />
             ))
-            : 'Loading...'
+            : <CircularProgress/>
           }
         </ul>
       </div>

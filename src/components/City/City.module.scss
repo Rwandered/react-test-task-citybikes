@@ -1,19 +1,16 @@
 $color-is-active: red;
 
-
 .cityBikes__city {
-
-
-  //&:focus {
-  //  color: $color-is-active;
-  //}
-
+  list-style: none;
+  cursor: pointer;
+  outline:none
 }
 
 .cityBikes__city_active {
-  font-weight: 900;
+  color: $color-is-active
 }
-.cityBikes__city_active:focus {
+
+.cityBikes__city:focus {
   color: $color-is-active;
 }
 

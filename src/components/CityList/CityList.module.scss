@@ -1,0 +1,17 @@
+$color-border: #383636;
+
+.cityBikes__cityList {
+  flex: 0 0 30%;
+  overflow-y: auto;
+  border: 1px solid $color-border;
+
+  &.cityList__row {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+  }
+
+  .cityList__cities {
+
+  }
+}

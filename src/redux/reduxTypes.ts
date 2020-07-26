@@ -1,15 +1,24 @@
-import { SET_STATIONS} from "./actions/actionTypes";
+import {SET_NETWORK} from "./actions/actionTypes";
 
 //Store
-export type Stations = {
-  stations: object[]
+type stations = {
+  name: string
+}
+
+export type Network =  {
+  company: Array<string>,
+  location?: {
+    city?: string,
+    country?: string
+  },
+  stations: Array<stations>
 }
 
 //Actions
 // typeof в ts жестко определит значени е которое может быть
 export interface ISetStationsAction {
-  type: typeof SET_STATIONS,
-  payload: Stations,
+  type: typeof SET_NETWORK,
+  payload: Network,
 }
 
 // пока тут только один интерфейс, но будут еще

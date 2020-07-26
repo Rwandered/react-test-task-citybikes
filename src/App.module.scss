@@ -1,0 +1,18 @@
+$color-wrapper: #000;
+$color-border: #383636;
+
+.cityBikes {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.cityBikes__wrapper {
+  color: $color-wrapper;
+  position: relative;
+  width: 95vw;
+  height: 50vh;
+  margin: 0 auto;
+  border: 1px solid $color-border;
+
+  display: flex;
+}
