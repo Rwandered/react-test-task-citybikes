@@ -1,5 +1,6 @@
 import { SET_NETWORK} from "./actionTypes";
 import {NetworkActionType, Network} from "../reduxTypes";
+import axios from '../../utils/api'
 
 
 export const setNetwork = (network: Network): NetworkActionType => {
@@ -13,9 +14,8 @@ export const getStation = (id: string) => {
 
   return async (dispatch:any) => {
     try {
-      const res = await fetch(`https://api.citybik.es/v2/networks/${id}`)
-      const { network } = await res.json()
-      dispatch( setNetwork( network ) )
+      const {data} = await axios.get(`/networks/${id}`)
+      dispatch( setNetwork( data.network ) )
     } catch (e) {}
   }
 }
